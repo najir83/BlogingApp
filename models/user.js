@@ -21,7 +21,7 @@ const userSchema = new Schema(
     },
     profileImg: {
       type: String,
-      default: "/home/luca/Desktop/backend/BloggingApp/public/img_avatar.webp",
+      default: "/public/img_avatar.webp",
     },
     role: {
       type: String,
