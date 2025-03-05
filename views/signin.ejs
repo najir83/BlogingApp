@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <%- include("/home/luca/Desktop/backend/BloggingApp/partials/head") %>
+    <%- include("../partials/head") %>
         <title>HomePage</title>
 </head>
 
 <body>
-    <%- include("/home/luca/Desktop/backend/BloggingApp/partials/nav.ejs") %>
+    <%- include("../partials/nav.ejs") %>
         <form method="POST" class="m-4" action="/user/signin">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -21,7 +21,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
-        <%- include('/home/luca/Desktop/backend/BloggingApp/partials/script') %>
+        <%- include('../partials/script') %>
 </body>
 
 </html>

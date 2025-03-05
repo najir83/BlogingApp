@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-    <%- include("/home/luca/Desktop/backend/BloggingApp/partials/head") %>
+    <%- include("../partials/head") %>
         <title>HomePage</title>
 </head>
 
 <body>
-    <%- include("/home/luca/Desktop/backend/BloggingApp/partials/nav.ejs") %>
+    <%- include("../partials/nav.ejs") %>
         <div class="container mt-4">
             <h1>Title : <%= blog.title%>
             </h1>
@@ -58,7 +58,7 @@
                                     <% } %>
             </div>
         </div>
-        <%- include('/home/luca/Desktop/backend/BloggingApp/partials/script') %>
+        <%- include('../partials/script') %>
 </body>
 
 </html>
