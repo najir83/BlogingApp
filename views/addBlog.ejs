@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("/home/luca/Desktop/backend/BloggingApp/partials/head") %>
+        <title>HomePage</title>
+</head>
+
+<body>
+    <%- include("/home/luca/Desktop/backend/BloggingApp/partials/nav.ejs") %>
+        <div class="container m-4">
+            <form method="POST" action="/blog" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="coverImg" class="form-label">Cover Image</label>
+                    <input type="file" class="form-control" id="coverImg" name="coverImg" aria-describedby="coverImg" />
+
+                </div>
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" aria-describedby="title" />
+
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="Leave a comment here" name="body" id="body"
+                        style="height: 100px"></textarea>
+                    <label for="body">Body</label>
+                </div>
+
+                <button type="submit" class=" m-3 btn btn-primary">Submit</button>
+            </form>
+
+
+        </div>
+
+        <%- include('/home/luca/Desktop/backend/BloggingApp/partials/script') %>
+</body>
+
+</html>

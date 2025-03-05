@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("/home/luca/Desktop/backend/BloggingApp/partials/head") %>
+        <title>HomePage</title>
+</head>
+
+<body>
+    <%- include("/home/luca/Desktop/backend/BloggingApp/partials/nav.ejs") %>
+        <div class="container mt-4">
+            <h1>Title : <%= blog.title%>
+            </h1>
+            <img width="300px" src="<%= blog.coverImgURL %>" />
+            <pre><%= blog.body %></pre>
+            <div class="container">
+                <img src="<%=blog.created_by.profileImg.slice(blog.created_by.profileImg.search('/img')) %>"
+                    width="50px">
+                <%=blog.created_by.fullName %>
+            </div>
+            <div>
+                <h2>Comments(<%if(locals.comments) {%>
+                        <%= comments.length %>
+                            <%} else {%>
+                                0
+                                <% } %>)
+                </h2>
+                <% if(user){ %>
+
+                    <form method="POST" class="m-4" action="/blog/comment/<%= blog._id %>">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" name="content" id="comment"
+                                placeholder="Enter your comment ...">
+                            <button type="submit" class="btn btn-sm btn-primary mt-2">send comment</button>
+                        </div>
+                    </form>
+                    <% } %>
+                        <% if(locals.comments) {%>
+
+                            <% comments.forEach(cp=>{%>
+                                <div>
+                                    <h5>
+                                        <img width="50px"
+                                            src="<%=cp.created_by.profileImg.slice(blog.created_by.profileImg.search('/img')) %>" />
+                                        <%=cp.created_by.fullName%> :
+                                    </h5>
+                                    <pre>
+                                           <%= cp.content %>
+                                    </pre>
+                                </div>
+
+
+
+                                <% }); %>
+
+
+
+                                    <% } %>
+            </div>
+        </div>
+        <%- include('/home/luca/Desktop/backend/BloggingApp/partials/script') %>
+</body>
+
+</html>

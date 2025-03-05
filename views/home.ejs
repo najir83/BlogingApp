@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("/home/luca/Desktop/backend/BloggingApp/partials/head") %>
+        <title>HomePage</title>
+</head>
+
+<body>
+    <%- include("/home/luca/Desktop/backend/BloggingApp/partials/nav.ejs") %>
+        <div class="container m-10 row row-cols-2">
+            <% blogs.forEach(blog=> {%>
+                <div class="col">
+                    <div class="card col mt-3" style="width: 18rem;">
+                        <img src="<%= blog.coverImgURL %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=blog.title %>
+                            </h5>
+                            <a href="/blog/<%= blog._id %>" class="btn btn-primary">view</a>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+        </div>
+        <%- include('/home/luca/Desktop/backend/BloggingApp/partials/script') %>
+</body>
+
+</html>
