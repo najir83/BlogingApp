@@ -3,36 +3,41 @@
 
 <head>
     <%- include("../partials/head") %>
-        <title>HomePage</title>
+    <title>HomePage</title>
 </head>
 
-<body>
+<body class="bg-gray-100 text-gray-900">
     <%- include("../partials/nav.ejs") %>
-        <div class="container m-4">
-            <form method="POST" action="/blog" enctype="multipart/form-data">
-                <div class="mb-3">
-                    <label for="coverImg" class="form-label">Cover Image</label>
-                    <input type="file" class="form-control" id="coverImg" name="coverImg" aria-describedby="coverImg" />
 
-                </div>
-                <div class="mb-3">
-                    <label for="title" class="form-label">Title</label>
-                    <input type="text" class="form-control" id="title" name="title" aria-describedby="title" />
+    <div class="container mx-auto p-4">
+        <form method="POST" action="/blog" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-md">
+            <div class="mb-4">
+                <label for="coverImg" class="block text-sm font-medium text-gray-700">Cover Image</label>
+                <input type="file" id="coverImg" name="coverImg"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+            </div>
 
-                </div>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" name="body" id="body"
-                        style="height: 100px"></textarea>
-                    <label for="body">Body</label>
-                </div>
+            <div class="mb-4">
+                <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                <input type="text" id="title" name="title"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+            </div>
 
-                <button type="submit" class=" m-3 btn btn-primary">Submit</button>
-            </form>
+            <div class="mb-4">
+                <label for="body" class="block text-sm font-medium text-gray-700">Body</label>
+                <textarea id="body" name="body" rows="4"
+                    class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Write your content here..."></textarea>
+            </div>
 
+            <button type="submit"
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-200">
+                Submit
+            </button>
+        </form>
+    </div>
 
-        </div>
-
-        <%- include('../partials/script') %>
+    <%- include('../partials/script') %>
 </body>
 
 </html>

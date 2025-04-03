@@ -17,6 +17,11 @@ const PORT = process.env.PORT || 8000;
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(checkForAuthenticationCookie("token"));
+app.use((req, res, next) => {
+  res.locals.currentPath = req.path;
+  next();
+});
+
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
 
