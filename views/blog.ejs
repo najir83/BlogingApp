@@ -3,50 +3,65 @@
 
 <head>
     <%- include("../partials/head") %>
-        <title>HomePage</title>
+        <title>
+            <%= blog.title %>
+        </title>
 </head>
 
-<body>
+<body class="bg-gray-700">
     <%- include("../partials/nav.ejs") %>
-        <div class="container mt-4">
-            <h1>Title : <%= blog.title%>
+        <div class=" p-4 pt-0 w-full h-full container mt-4 flex flex-col justify-center items-center">
+            <h1 class="text-3xl cs-white text-shadow-sm text-shadow-gray-500 font-bold p-10">Title : <span
+                    class="cs-w-2 text-shadow-md text-shadow-black">
+                    <%= blog.title%>
+                </span>
             </h1>
-            <img width="300px" src="<%= blog.coverImgURL %>" />
-            <pre><%= blog.body %></pre>
-            <div class="container">
-                <img src="<%=blog.created_by.profileImg.slice(blog.created_by.profileImg.search('/img')) %>"
-                    width="50px">
-                <%=blog.created_by.fullName %>
+
+            <img class=" w-90 h-70 lg:w-150 lg:h-110 rounded-md shadow-md shadow-white" src="<%= blog.coverImgURL %>" />
+
+            <p class="text-left mx-2 p-2 pt-7 lg:p-10 lg:mx-10 cs-text text-md">
+                <%= blog.body %>
+            </p>
+
+            <div class="container mx-10 p-2 pt-7 flex items-center gap-7 lg:p-10 lg:pt-5 lg:mx-15 ">
+                <img class=" w-10 h-10 lg:w-13 lg:h-13 rounded-full"
+                    src="<%=blog.created_by.profileImg.slice(blog.created_by.profileImg.search('/img')) %>">
+                <p class="text-xl italic font-bold cs-text2">
+                    <%=blog.created_by.fullName %>
+                </p>
             </div>
-            <div>
-                <h2>Comments(<%if(locals.comments) {%>
+            <div class="w-full mx-10 p-2 pt-0  lg:p-10 lg:pt-5 lg:mx-15">
+                <h2 class="text-white pb-2 border-b-2">Comments(<%if(locals.comments) {%>
                         <%= comments.length %>
                             <%} else {%>
                                 0
                                 <% } %>)
                 </h2>
+
                 <% if(user){ %>
 
                     <form method="POST" class="m-4" action="/blog/comment/<%= blog._id %>">
-                        <div class="mb-3">
-                            <input type="text" class="form-control" name="content" id="comment"
-                                placeholder="Enter your comment ...">
-                            <button type="submit" class="btn btn-sm btn-primary mt-2">send comment</button>
+                        <div class="mb-3 flex relative">
+                            <input spellcheck="false" type="text"
+                                class="form-control outline-0 bg-white rounded-md p-3 w-full pr-20 lg:pr-25" name="content"
+                                id="comment" placeholder="Enter your comment ...">
+                            <button type="submit"
+                                class="btn font-bold bg-gradient-to-r from-gray-800 to-gray-600 hover:from-gray-900 text-white py-2 rounded-l-full rounded-r-md hover:bg-gray-600 transition px-5 absolute right-0 h-full ">send</button>
                         </div>
                     </form>
                     <% } %>
                         <% if(locals.comments) {%>
 
                             <% comments.forEach(cp=>{%>
-                                <div>
-                                    <h5>
-                                        <img width="50px"
+                                <div class="w-full m-4">
+                                    <div class="flex items-center gap-4">
+                                        <img class=" w-9 h-9 lg:w-12 lg:h-12 rounded-full"
                                             src="<%=cp.created_by.profileImg.slice(blog.created_by.profileImg.search('/img')) %>" />
-                                        <%=cp.created_by.fullName%> :
-                                    </h5>
-                                    <pre>
-                                           <%= cp.content %>
-                                    </pre>
+                                       <span class="text-fuchsia-100 font-bold"><%=cp.created_by.fullName%></span> 
+                                    </div>
+                                    <p class="text-gray-400 p-2">
+                                        <%= cp.content %>
+                                    </p>
                                 </div>
 
 
@@ -58,7 +73,7 @@
                                     <% } %>
             </div>
         </div>
-        <%- include('../partials/script') %>
+
 </body>
 
 </html>

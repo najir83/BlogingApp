@@ -1,6 +1,7 @@
 const { Schema, model } = require("mongoose");
 const { createHmac, randomBytes } = require("node:crypto");
 const { createTokenForUSer, validateToken } = require("../services/auth");
+const { type } = require("node:os");
 const userSchema = new Schema(
   {
     fullName: {
@@ -28,6 +29,13 @@ const userSchema = new Schema(
       enum: ["USER", "ADMIN"], //enum -> we can not assign any other value except that
       default: "USER",
     },
+    isVarified: {
+      type: Boolean,
+      default: false,
+    },
+    varificationToken: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
@@ -48,7 +56,8 @@ userSchema.static(
   "matchPasswordAndGenerateToken",
   async function (email, password) {
     const user = await this.findOne({ email });
-    if (!user) throw new Error("User not found....");
+    if (!user || user.isVarified == false)
+      throw new Error("User not found....");
     const salt = user.salt;
     const hasPass = user.password;
     const checkingNew = createHmac("sha256", salt)

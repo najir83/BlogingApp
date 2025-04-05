@@ -3,4 +3,15 @@ body {
     font-family: Inter,Helvetica Neue,Helvetica,Arial,sans-serif;
     
   }
-  
+  .cs-white{
+    color: #ced4da;
+  }
+  .cs-w-2{
+    color: #dee2e6;
+  }
+  .cs-text{
+    color: #ced4da;
+  }
+  .cs-text2{
+    color: #161a1d;
+  }
