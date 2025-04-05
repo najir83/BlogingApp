@@ -3,7 +3,6 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
-console.log(process.env.MONGO_URL);
 mongoose.connect(process.env.MONGO_URL).then((e) => {
   console.log("MongoDB connected ...");
 });
