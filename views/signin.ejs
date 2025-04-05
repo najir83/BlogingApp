@@ -3,32 +3,42 @@
 
 <head>
     <%- include("../partials/head") %>
-    <title>HomePage</title>
+        <title>Log In</title>
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-gray-700">
     <%- include("../partials/nav.ejs") %>
 
-    <form method="POST" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow-md mt-10" action="/user/signin">
-        <div class="mb-4">
-            <label for="email" class="block text-gray-700 font-bold mb-2">Email address</label>
-            <input type="email" name="email" id="email"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
-                aria-describedby="emailHelp">
-            <p id="emailHelp" class="text-sm text-gray-500 mt-1">We'll never share your email with anyone else.</p>
-        </div>
+        <form method="POST"
+            class="max-w-sm lg:max-w-md mx-auto bg-gradient-to-r from-slate-500 to-gray-400  p-6 rounded-lg shadow-md mt-10"
+            action="/user/signin">
+            <div
+                class="mx-auto w-12 bg-gray-400 shadow-md shadow-green-950  text-center h-12  rounded-full flex justify-center items-center top-0 ">
+                <i class="fa-solid fa-paper-plane  font-bold text-3xl  "></i>
+            </div>
 
-        <div class="mb-4">
-            <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
-            <input type="password" name="password" id="password"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none">
-        </div>
+            <div class="mb-4 mt-10">
+                <label for="email" class="block text-black font-bold mb-2">Email address</label>
+                <input type="email" name="email" id="email"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none"
+                    aria-describedby="emailHelp">
+            </div>
 
-        <button type="submit"
-            class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">Submit</button>
-    </form>
+            <div class="mb-4 pb-5">
+                <label for="password" class="block text-black font-bold mb-2">Password</label>
+                <input type="password" name="password" id="password"
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none">
+            </div>
+            <% if(locals.error) {%>
 
-    <%- include('../partials/script') %>
+                <div class="text-red-700"><%=error %></div>
+                    <% } %>
+
+                        <button type="submit"
+                            class="w-full font-bold bg-gradient-to-r from-gray-800 to-gray-600 hover:from-gray-900 text-white py-2 rounded-lg hover:bg-gray-600 transition">Submit</button>
+
+        </form>
+
 </body>
 
 </html>
