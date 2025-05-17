@@ -5,7 +5,7 @@
 ## 🚀 Features
 
 - **User Authentication** – Secure login and registration
-- **Full CRUD Functionality** – Create, Read, Update, Delete blog posts
+- **Functionality** – Create, Read,blog posts
 - **Responsive UI** – Tailwind CSS powered frontend
 - **Modular Structure** – Organized folders for scalability
 - **Middleware Support** – Custom middleware for logging, error handling, etc.
@@ -23,4 +23,3 @@ Check out the deployed version here:
 - **Templating**: EJS
 - **Other Tools**: dotenv, nodemon
 
-## 📁 Project Structure
