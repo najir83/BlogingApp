@@ -10,7 +10,7 @@ const otpTemplate = (otp) => {
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
       <h2 style="color: #333;"> Your OTP Code</h2>
       <p style="font-size: 16px; color: #555;">
-        Hey there! Use the OTP below to verify your account. It's only valid for the next 10 minutes ⏰
+        Hey there! Use the OTP below to verify your account. It's only valid for the next 10 minutes
       </p>
       <div style="font-size: 24px; font-weight: bold; margin: 20px 0; color: #111;">
         ${otp}
